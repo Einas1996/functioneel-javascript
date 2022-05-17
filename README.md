@@ -6,3 +6,5 @@
    c) no mutating data
 
 2. see if you can can compose the various filter functions into one higher-order function
+
+see: <https://www.freecodecamp.org/news/javascript-map-reduce-and-filter-explained-with-examples/>
