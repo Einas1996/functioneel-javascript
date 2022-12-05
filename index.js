@@ -4,11 +4,16 @@
 //  c) no mutating data
 // 2. see if you can can compose the various filter functions into one higher-order function
 
-let teachers = [
-  { name: "Corné", age: 34, height: 182 },
-  { name: "Gerrit", age: 22, height: 205 },
-  { name: "Peter", age: 48, height: 165 },
-  { name: "Bertwim", age: 32, height: 178 },
+let people = [
+  { name: "Gerard", age: 34, height: 182 },
+  { name: "Katarina", age: 22, height: 172 },
+  { name: "Ali", age: 48, height: 203 },
+  { name: "Betty", age: 53, height: 158 },
+  { name: "Berend", age: 32, height: 178 },
+  { name: "Sander", age: 25, height: 192 },
+  { name: "Vera", age: 19, height: 148 },
+  { name: "Archibald", age: 102, height: 155 },
+  { name: "Ulf", age: 12, height: 148 },
 ];
 
 /*
@@ -16,8 +21,8 @@ let teachers = [
 */
 
 function printNames() {
-  for (let i = 0; i < teachers.length; i++) {
-    console.log(teachers[i].name);
+  for (let i = 0; i < people.length; i++) {
+    console.log(people[i].name);
   }
 }
 
@@ -27,38 +32,38 @@ function printNames() {
 
 function filterAge(limit) {
   let result = [];
-  for (let i = 0; i < teachers.length; i++) {
-    if (teachers[i].age < limit) {
-      result.push(teachers[i]);
+  for (let i = 0; i < people.length; i++) {
+    if (people[i].age < limit) {
+      result.push(people[i]);
     }
   }
-  teachers = result;
+  people = result;
 }
 
 filterAge(40);
-console.log(teachers);
+console.log(people);
 
 /*
   filter name by predicate 
 */
 
-const startsWithC = function (name) {
-  return name.startsWith("C");
+const startsWithB = function (name) {
+  return name.startsWith("B");
 };
 
 function filterName(predicate) {
   let result = [];
-  for (let i = 0; i < teachers.length; i++) {
-    const teacher = teachers[i];
+  for (let i = 0; i < people.length; i++) {
+    const teacher = people[i];
     if (predicate(teacher.name)) {
-      result.push(teachers[i]);
+      result.push(people[i]);
     }
   }
-  teachers = result;
+  people = result;
 }
 
-filterName(startsWithC);
-console.log(teachers);
+filterName(startsWithB);
+console.log(people);
 
 /*
   create greeting strings for all teachers
@@ -67,8 +72,8 @@ console.log(teachers);
 let greetings = [];
 
 function createGreetings() {
-  for (let i = 0; i < teachers.length; i++) {
-    const greeting = `Ik ben ${teachers[i].name} en ik ben ${teachers[i].age} jaar oud.`;
+  for (let i = 0; i < people.length; i++) {
+    const greeting = `Ik ben ${people[i].name} en ik ben ${people[i].age} jaar oud.`;
     greetings.push(greeting);
   }
 }
@@ -81,11 +86,11 @@ console.log(greetings);
 */
 function averageAge() {
   let sum = 0;
-  for (let i = 0; i < teachers.length; i++) {
-    sum += teachers[i].age;
+  for (let i = 0; i < people.length; i++) {
+    sum += people[i].age;
   }
 
-  return sum / teachers.length;
+  return sum / people.length;
 }
 
 console.log(averageAge());
@@ -95,14 +100,14 @@ console.log(averageAge());
 */
 function concatenateString() {
   let result = "";
-  for (let i = 0; i < teachers.length; i++) {
+  for (let i = 0; i < people.length; i++) {
     let separator = ", ";
-    if (i === teachers.length - 1) {
+    if (i === people.length - 1) {
       separator = ".";
-    } else if (i === teachers.length - 2) {
+    } else if (i === people.length - 2) {
       separator = " en ";
     }
-    result += teachers[i].name + separator;
+    result += people[i].name + separator;
   }
   return result;
 }
