@@ -9,4 +9,4 @@
 
 see: <https://www.freecodecamp.org/news/javascript-map-reduce-and-filter-explained-with-examples/>
 
-to run the tests, run `npm install` and then `npm test`
+to run the tests, run `npm install`, `npm build` and then `npm test`
