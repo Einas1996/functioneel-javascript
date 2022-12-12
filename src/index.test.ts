@@ -7,7 +7,7 @@ import {
   concatenateString,
 } from "../dist/index.js";
 
-test("should print everyone's names", () => {
+test("print everyone's names", () => {
   const result = getNames();
   expect(result).toEqual([
     "Gerard",
@@ -23,7 +23,7 @@ test("should print everyone's names", () => {
   ]);
 });
 
-test("should the people under 30", () => {
+test("filter out people under 30", () => {
   const result = filterAge(30);
   expect(result).toEqual([
     { name: "Katarina", age: 22, height: 172 },
@@ -34,7 +34,7 @@ test("should the people under 30", () => {
   ]);
 });
 
-test("should show the people whose name ends with a", () => {
+test("show the people whose name ends with a", () => {
   function endsWith(letter) {
     return (str) => str.endsWith(letter);
   }
@@ -45,7 +45,7 @@ test("should show the people whose name ends with a", () => {
   ]);
 });
 
-test("should show the people whose name starts with B", () => {
+test("show the people whose name starts with B", () => {
   function startsWith(letter) {
     return (str) => str.startsWith(letter);
   }
