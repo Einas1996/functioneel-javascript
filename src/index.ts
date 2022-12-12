@@ -4,7 +4,13 @@
 //  c) no mutating data
 // 2. see if you can can compose the various filter functions into one higher-order function
 
-let people = [
+interface Person {
+  name: String;
+  age: number;
+  height: number;
+}
+
+let people: Person[] = [
   { name: "Gerard", age: 34, height: 182 },
   { name: "Katarina", age: 22, height: 172 },
   { name: "Ali", age: 48, height: 203 },
@@ -14,6 +20,7 @@ let people = [
   { name: "Vera", age: 19, height: 148 },
   { name: "Archibald", age: 102, height: 155 },
   { name: "Ulf", age: 12, height: 148 },
+  { name: "Hichem", age: 21, height: 183 },
 ];
 
 /*

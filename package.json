@@ -1,0 +1,25 @@
+{
+  "name": "functional-javascript",
+  "version": "1.0.0",
+  "description": "1. rewrite the filter functions in a functional style, meaning:      a) pure functions (no side effects)      b) no for-loops, use array methods instead      c) no mutating data",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/adsd_hu/functional-javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/adsd_hu/functional-javascript/issues"
+  },
+  "homepage": "https://gitlab.com/adsd_hu/functional-javascript#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
