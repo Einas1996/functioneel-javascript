@@ -5,7 +5,7 @@
 // 2. see if you can can compose the various filter functions into one higher-order function
 
 interface Person {
-  name: String;
+  name: string;
   age: number;
   height: number;
 }
@@ -27,71 +27,60 @@ let people: Person[] = [
   print everyone's names
 */
 
-function printNames() {
+export function getNames() {
+  let result = [];
   for (let i = 0; i < people.length; i++) {
-    console.log(people[i].name);
+    result.push(people[i].name);
   }
+  return result;
 }
 
 /*
   filter by age
 */
 
-function filterAge(limit) {
+export function filterAge(limit: number) {
   let result = [];
   for (let i = 0; i < people.length; i++) {
     if (people[i].age < limit) {
       result.push(people[i]);
     }
   }
-  people = result;
+  return result;
 }
-
-filterAge(40);
-console.log(people);
 
 /*
   filter name by predicate 
 */
 
-const startsWithB = function (name) {
-  return name.startsWith("B");
-};
-
-function filterName(predicate) {
+export function filterNames(predicate: (str: string) => boolean) {
   let result = [];
   for (let i = 0; i < people.length; i++) {
-    const teacher = people[i];
-    if (predicate(teacher.name)) {
-      result.push(people[i]);
+    const person = people[i];
+    if (predicate(person.name)) {
+      result.push(person);
     }
   }
-  people = result;
+  return result;
 }
-
-filterName(startsWithB);
-console.log(people);
 
 /*
   create greeting strings for all teachers
 */
 
-let greetings = [];
-
-function createGreetings() {
+export function createGreetings() {
+  let greetings = [];
   for (let i = 0; i < people.length; i++) {
     const greeting = `Ik ben ${people[i].name} en ik ben ${people[i].age} jaar oud.`;
     greetings.push(greeting);
   }
+  return greetings;
 }
-
-createGreetings();
-console.log(greetings);
 
 /*
   get the average age
 */
-function averageAge() {
+export function getAverageAge() {
   let sum = 0;
   for (let i = 0; i < people.length; i++) {
     sum += people[i].age;
@@ -100,12 +89,10 @@ function averageAge() {
   return sum / people.length;
 }
 
-console.log(averageAge());
-
 /*
   concatenate the names into a string
 */
-function concatenateString() {
+export function concatenateString() {
   let result = "";
   for (let i = 0; i < people.length; i++) {
     let separator = ", ";
@@ -118,5 +105,3 @@ function concatenateString() {
   }
   return result;
 }
-
-console.log(concatenateString());
