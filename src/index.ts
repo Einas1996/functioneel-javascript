@@ -2,7 +2,7 @@
 //  a) pure functions (no side effects)
 //  b) no for-loops, use array methods instead
 //  c) no mutating data
-// 2. see if you can can compose the various filter functions into one higher-order function
+// 2. see if you can compose the various filter functions into one higher-order function
 
 interface Person {
   name: string;
@@ -10,7 +10,7 @@ interface Person {
   height: number;
 }
 
-let people: Person[] = [
+const people: Person[] = [
   { name: "Gerard", age: 34, height: 182 },
   { name: "Katarina", age: 22, height: 172 },
   { name: "Ali", age: 48, height: 203 },
@@ -28,7 +28,7 @@ let people: Person[] = [
 */
 
 export function getNames() {
-  let result = [];
+  let result: string[] = [];
   for (let i = 0; i < people.length; i++) {
     result.push(people[i].name);
   }
@@ -40,7 +40,7 @@ export function getNames() {
 */
 
 export function filterAge(limit: number) {
-  let result = [];
+  let result: Person[] = [];
   for (let i = 0; i < people.length; i++) {
     if (people[i].age < limit) {
       result.push(people[i]);
@@ -54,7 +54,7 @@ export function filterAge(limit: number) {
 */
 
 export function filterNames(predicate: (str: string) => boolean) {
-  let result = [];
+  let result: Person[] = [];
   for (let i = 0; i < people.length; i++) {
     const person = people[i];
     if (predicate(person.name)) {
@@ -69,7 +69,7 @@ export function filterNames(predicate: (str: string) => boolean) {
 */
 
 export function createGreetings() {
-  let greetings = [];
+  let greetings: string[] = [];
   for (let i = 0; i < people.length; i++) {
     const greeting = `Ik ben ${people[i].name} en ik ben ${people[i].age} jaar oud.`;
     greetings.push(greeting);

@@ -5,7 +5,7 @@ import {
   createGreetings,
   getAverageAge,
   concatenateString,
-} from "../dist/index.js";
+} from "./index";
 
 test("print everyone's names", () => {
   const result = getNames();
