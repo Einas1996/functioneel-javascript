@@ -23,6 +23,16 @@ test("print everyone's names", () => {
   ]);
 });
 
+test("filter out people under 24", () => {
+  const result = filterAge(24);
+  expect (result). toEqual([
+  { name: "Katarina", age: 22, height: 172 },
+  { name: "Vera", age: 19, height: 148 },
+  { name: "Ulf", age: 12, height: 148 },
+  { name: "Hichem", age: 21, height: 183 },
+  ]);
+});
+
 test("filter out people under 30", () => {
   const result = filterAge(30);
   expect(result).toEqual([
